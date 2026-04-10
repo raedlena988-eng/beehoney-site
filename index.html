@@ -21,7 +21,6 @@
             padding: 1rem;
         }
 
-        /* الحاوية الرئيسية */
         .app-wrapper {
             width: 100%;
             max-width: 1400px;
@@ -30,10 +29,9 @@
             box-shadow: 0 25px 45px -12px rgba(0,0,0,0.25);
             overflow: hidden;
             backdrop-filter: blur(2px);
-            transition: all 0.3s;
         }
 
-        /* شاشة تسجيل الدخول */
+        /* شاشة الدخول */
         .login-screen {
             min-height: 85vh;
             display: flex;
@@ -53,17 +51,14 @@
             border: 1px solid #ffdf9c;
         }
 
-        /* الشعار في منتصف صفحة الدخول */
         .center-logo {
             margin-bottom: 2rem;
         }
         .center-logo .logo-icon {
             font-size: 5rem;
-            display: inline-block;
             background: #f7b32b;
             width: 100px;
             height: 100px;
-            line-height: 1.2;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -71,18 +66,13 @@
             margin: 0 auto 1rem;
             box-shadow: 0 10px 20px rgba(247,179,43,0.3);
         }
-        .center-logo .logo-icon span {
-            font-size: 3.5rem;
-        }
         .center-logo h1 {
             font-size: 2.4rem;
             color: #c47a2b;
-            letter-spacing: -0.5px;
             font-weight: 800;
         }
         .center-logo p {
             color: #b86f1f;
-            font-weight: 500;
             margin-top: 0.5rem;
         }
 
@@ -103,37 +93,24 @@
             border: 1.5px solid #ffd966;
             background: #fffef7;
             font-size: 1rem;
-            outline: none;
-            transition: 0.2s;
-        }
-        .input-group input:focus {
-            border-color: #f7b32b;
-            box-shadow: 0 0 0 3px rgba(247,179,43,0.2);
         }
         .btn {
             background: #f7b32b;
             border: none;
-            padding: 0.9rem 1.8rem;
+            padding: 0.9rem;
             border-radius: 60px;
             font-weight: bold;
             font-size: 1.1rem;
             color: #3a2a0f;
             cursor: pointer;
             width: 100%;
-            transition: 0.2s;
-            box-shadow: 0 5px 10px rgba(0,0,0,0.05);
-        }
-        .btn:hover {
-            background: #e6a017;
-            transform: scale(0.98);
         }
         .error-msg {
             color: #d9534f;
             margin-top: 1rem;
-            font-size: 0.9rem;
         }
 
-        /* اللوحة الرئيسية بعد الدخول */
+        /* لوحة التحكم */
         .dashboard {
             display: none;
         }
@@ -165,8 +142,6 @@
             padding: 0.5rem 1.2rem;
             border-radius: 40px;
             cursor: pointer;
-            font-weight: bold;
-            color: #b45f1b;
         }
         .cards-grid {
             display: grid;
@@ -180,29 +155,23 @@
             padding: 1.8rem;
             text-align: center;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: 0.2s;
             box-shadow: 0 8px 20px rgba(0,0,0,0.05);
             border: 1px solid #fbe4b0;
         }
         .card:hover {
             transform: translateY(-8px);
             box-shadow: 0 20px 30px -10px rgba(247,179,43,0.3);
-            border-color: #f7b32b;
         }
         .card-emoji {
             font-size: 3rem;
-            margin-bottom: 1rem;
         }
         .card h3 {
             color: #784a1a;
-            margin-bottom: 0.5rem;
-        }
-        .card p {
-            color: #ad7a3d;
-            font-size: 0.9rem;
+            margin: 0.5rem 0;
         }
 
-        /* صفحة القسم (المستشار الذكي) */
+        /* صفحة القسم */
         .section-page {
             display: none;
             padding: 1.5rem;
@@ -214,16 +183,11 @@
             border-radius: 40px;
             cursor: pointer;
             margin-bottom: 1.5rem;
-            font-weight: bold;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
         }
         .consultant-box {
             background: white;
             border-radius: 40px;
             padding: 1.8rem;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
         }
         .consultant-header {
             border-bottom: 2px solid #f7d89a;
@@ -232,9 +196,6 @@
             display: flex;
             align-items: center;
             gap: 1rem;
-        }
-        .consultant-header h2 {
-            color: #c47a2b;
         }
         .questions-row {
             display: flex;
@@ -248,13 +209,6 @@
             padding: 0.7rem 1.2rem;
             border-radius: 60px;
             cursor: pointer;
-            font-weight: 500;
-            transition: 0.1s;
-            color: #a4621a;
-        }
-        .q-btn:hover {
-            background: #f7b32b;
-            color: white;
         }
         .chat-area {
             background: #fefaf2;
@@ -282,50 +236,45 @@
             background: #ffffff;
             border-left: 4px solid #e6a017;
             text-align: right;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
         }
         .input-chat {
             display: flex;
             gap: 0.8rem;
-            margin-top: 1rem;
         }
         .input-chat input {
             flex: 1;
             padding: 0.9rem;
             border-radius: 60px;
             border: 1px solid #ffd58c;
-            background: white;
         }
         .input-chat button {
             background: #f7b32b;
             border: none;
             padding: 0 1.5rem;
             border-radius: 60px;
-            font-weight: bold;
             cursor: pointer;
         }
-
-        @media (max-width: 700px) {
-            .cards-grid {
-                padding: 1.5rem;
-                gap: 1.2rem;
-            }
-            .navbar {
-                flex-direction: column;
-                gap: 0.8rem;
-            }
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(0,0,0,0.1);
+            border-radius: 50%;
+            border-top-color: #f7b32b;
+            animation: spin 1s ease-in-out infinite;
+            margin-left: 8px;
         }
+        @keyframes spin { to { transform: rotate(360deg); } }
     </style>
 </head>
 <body>
-<div class="app-wrapper" id="app">
-    <!-- شاشة الدخول -->
+<div class="app-wrapper">
     <div id="loginScreen" class="login-screen">
         <div class="login-card">
             <div class="center-logo">
                 <div class="logo-icon"><span>🐝🍯</span></div>
                 <h1>BEE & HONEY</h1>
-                <p>لوحة الإدارة الذكية — دخول مخصص للشركة فقط</p>
+                <p>نظام الإدارة الذكي – مشروبات طبيعية من العسل</p>
             </div>
             <div class="input-group">
                 <label>🔐 كلمة المرور</label>
@@ -336,207 +285,198 @@
         </div>
     </div>
 
-    <!-- لوحة التحكم الرئيسية (تظهر بعد تسجيل الدخول) -->
     <div id="dashboardScreen" class="dashboard">
         <div class="navbar">
-            <div class="nav-logo">
-                <div class="bee-icon">🐝🍯</div>
-                <span>BEE & HONEY</span>
-            </div>
+            <div class="nav-logo"><div class="bee-icon">🐝🍯</div><span>BEE & HONEY</span></div>
             <button class="logout-btn" id="logoutBtn">🚪 تسجيل خروج</button>
         </div>
-        <div class="cards-grid" id="cardsContainer">
-            <!-- سيتم إنشاء البطاقات بواسطة js -->
-        </div>
+        <div class="cards-grid" id="cardsContainer"></div>
     </div>
 
-    <!-- حاوية الصفحات الفرعية (كل قسم) -->
     <div id="sectionContainer" class="section-page"></div>
 </div>
 
 <script>
-    // بيانات الأقسام الستة كما في الصور
+    // ================== أدخل مفتاح API هنا ==================
+    const OPENAI_API_KEY = 'YOUR_API_KEY_HERE'; // <--- استبدله بمفتاحك
+    
+    // تعريف الشركة حسب الصورة المرفقة
+    const COMPANY_DESCRIPTION = `Bee & Honey (بي أند هني) هي علامة تجارية متخصصة في إنتاج مشروبات ومكملات غذائية طبيعية وصحية تعتمد بشكل أساسي على العسل الطبيعي كحامل وحيد، وتتميز بخلوها من السكر المضاف والمواد الحافظة والغازات. منتجاتها تشمل: مشروب الزنجبيل مع العسل 250 مل، مشروب الكولاجين مع العسل 250 مل، مشروب الشعير مع العسل 250 مل، وغيرها.`;
+    
+    const SYSTEM_PROMPT = `أنت خبير استشاري متخصص في شركة "Bee & Honey". 
+    
+    معلومات عن الشركة: ${COMPANY_DESCRIPTION}
+    
+    مجالات خبرتك:
+    1. إدارة اقتصاد: التحليل الاقتصادي، التكاليف، الأسعار، الجدوى، الأرباح.
+    2. إدارة الأزمات: حلول لأزمات الإنتاج، السمعة، الجودة، الإمداد.
+    3. إدارة وتنظيم مالي: الميزانيات، التقارير، الهيكل المالي.
+    4. إدارة تسويق: استراتيجيات التسويق، الإعلانات، السوشال ميديا، الحملات.
+    5. إدارة مبيعات: قنوات التوزيع، زيادة المبيعات، العروض.
+    6. دراسات الأسواق والدول اقتصادياً: تحليل الأسواق المحلية والعالمية، فرص التوسع.
+    
+    أجب دائماً بطريقة مهنية، محددة، وقابلة للتنفيذ. استخدم أرقاماً تقريبية واقعية. ركز على منتجات العسل الطبيعية والمشروبات الصحية.`;
+    
+    // الأقسام حسب طلب المستخدم
     const sections = [
-        { id: "economy", name: "إدارة اقتصاد", emoji: "📊", desc: "التحليل الاقتصادي للشركة", questions: ["جدوى التوسع", "تحليل الربحية", "تحليل التكاليف"], context: "اقتصاد" },
-        { id: "crisis", name: "إدارة أزمات", emoji: "⚠️", desc: "خطط الطوارئ والحلول", questions: ["أزمة إمداد", "أزمة جودة", "أزمة سمعة"], context: "أزمات" },
-        { id: "finance", name: "إدارة مالية وتنظيمية", emoji: "📈", desc: "الميزانيات والتقارير", questions: ["تحليل الميزانية السنوية", "تنظيم الهيكل المالي", "تقارير الأرباح الفصلية"], context: "مالية" },
-        { id: "marketing", name: "إدارة وتسويق", emoji: "📢", desc: "الاستراتيجيات والخدمات", questions: ["الجمهور المستهدف", "تسويق رقمي", "حملة إعلانية"], context: "تسويق" },
-        { id: "sales", name: "إدارة مبيعات", emoji: "💰", desc: "المبيعات والعملاء", questions: ["قنوات توزيع", "زيادة المبيعات", "عروض وحزم"], context: "مبيعات" },
-        { id: "markets", name: "دراسات الأسواق والدول", emoji: "🌍", desc: "تحليل الأسواق العالمية", questions: ["السوق الأمريكي", "السوق السعودي", "أسواق جديدة"], context: "أسواق" }
+        { id: "economy", name: "إدارة اقتصاد", emoji: "📊", context: "اقتصاد", questions: ["تحليل التكاليف", "تسعير المنتجات", "هامش الربح"] },
+        { id: "crisis", name: "إدارة الأزمات", emoji: "⚠️", context: "أزمات", questions: ["أزمة إمداد العسل", "أزمة جودة المنتج", "أزمة سمعة"] },
+        { id: "finance", name: "إدارة وتنظيم مالي", emoji: "📈", context: "مالي", questions: ["هيكل الميزانية", "تحسين السيولة", "تقارير ربع سنوية"] },
+        { id: "marketing", name: "إدارة تسويق", emoji: "📢", context: "تسويق", questions: ["الجمهور المستهدف", "حملة إعلانية لمشروب الزنجبيل", "استراتيجية سوشال ميديا"] },
+        { id: "sales", name: "إدارة مبيعات", emoji: "💰", context: "مبيعات", questions: ["قنوات توزيع المشروبات", "زيادة المبيعات 30%", "عروض ترويجية"] },
+        { id: "markets", name: "دراسات الأسواق والدول اقتصادياً", emoji: "🌍", context: "أسواق", questions: ["السوق السعودي", "السوق الإماراتي", "فرص التصدير"] }
     ];
-
-    // محاكاة الردود الذكية (حسب السياق والسؤال)
-    function getMockResponse(sectionContext, userQuestion) {
-        const q = userQuestion.toLowerCase();
-        // ردود عامة لشركة العسل Bee & Honey
-        if (sectionContext === "اقتصاد") {
-            if (q.includes("جدوى التوسع")) return "📈 بناءً على دراستنا، التوسع لأسواق الخليج يحقق عائد استثماري يصل إلى 35% خلال عامين، مع شراء خطوط إنتاج جديدة وزيادة الطاقة التصديرية. يفضل البدء بالسعودية والإمارات.";
-            if (q.includes("الربحية")) return "🍯 منتجات العسل الطبيعي تحقق هامش ربح صافي 42% حاليًا، وتحسين التسويق الرقمي قد يرفع المبيعات 20% إضافية.";
-            if (q.includes("التكاليف")) return "🔻 خفض التكاليف: التحول للطاقة الشمسية في المناحل، شراء العسل الخام مباشرة من المزارعين، وأتمتة خط التعبئة يوفر 18% من المصاريف التشغيلية.";
-            return "🧮 بناءً على التحليل الاقتصادي لـ Bee & Honey، نوصي بمراجعة هيكل التسعير وزيادة الإنتاج بنسبة 15% للاستفادة من وفورات الحجم.";
+    
+    async function callOpenAI(userMessage, sectionContext) {
+        const apiUrl = 'https://api.openai.com/v1/chat/completions';
+        const contextualized = `[القسم: ${sectionContext}]\n\nسؤال المستخدم: ${userMessage}`;
+        const body = {
+            model: 'gpt-3.5-turbo',
+            messages: [
+                { role: 'system', content: SYSTEM_PROMPT },
+                { role: 'user', content: contextualized }
+            ],
+            temperature: 0.7,
+            max_tokens: 800
+        };
+        try {
+            const res = await fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${OPENAI_API_KEY}`
+                },
+                body: JSON.stringify(body)
+            });
+            if (!res.ok) {
+                const err = await res.json();
+                throw new Error(err.error?.message || 'خطأ في الاتصال');
+            }
+            const data = await res.json();
+            return data.choices[0].message.content;
+        } catch (err) {
+            console.error(err);
+            return `⚠️ عذراً، حدث خطأ: ${err.message}. تأكد من صحة مفتاح API وإتصال الإنترنت.`;
         }
-        if (sectionContext === "أزمات") {
-            if (q.includes("إمداد")) return "🚨 خطة طوارئ الإمداد: إنشاء مخزون استراتيجي لمدة 3 أشهر، التعاقد مع 3 موردين بدلاء في مناطق مختلفة، واستخدام نظام تتبع ذكي للمخزون.";
-            if (q.includes("جودة")) return "✅ أزمة الجودة: تشكيل فريق استجابة سريع، سحب المنتج فورًا، فتح تحقيق شفاف، وتعويض العملاء. تطبيق نظام HACCP بشكل صارم.";
-            if (q.includes("سمعة")) return "📱 إدارة السمعة: الرد المهني خلال ساعة، إطلاق حملة توضيح إيجابية، الاستعانة بمؤثرين موثوقين، وتقديم ضمانات إضافية للجودة.";
-            return "🛡️ Bee & Honey لديها خطة أزمات شاملة تشمل الاتصال السريع مع وسائل الإعلام والتواصل المباشر مع العملاء.";
-        }
-        if (sectionContext === "مالية") {
-            if (q.includes("الميزانية")) return "💰 الميزانية السنوية الموصى بها: 40% إنتاج، 25% تسويق، 15% بحث وتطوير، 10% احتياطي، 10% توسع.";
-            if (q.includes("الهيكل")) return "🏛️ الهيكل المالي الأمثل: فصل حسابات التشغيل عن الاستثمار، إنشاء صندوق للطوارئ، وتعيين مراقب مالي داخلي.";
-            if (q.includes("الأرباح")) return "📊 أرباح الربع الأخير: 2.4 مليون ريال، بنمو 12% عن العام الماضي. العسل العضوي الأكثر مبيعًا بنسبة 54%.";
-            return "📉 ننصح بإعادة توزيع الميزانية التسويقية لزيادة العائد على الاستثمار وتحسين السيولة.";
-        }
-        if (sectionContext === "تسويق") {
-            if (q.includes("الجمهور")) return "🎯 الجمهور المستهدف: فئة 25-45 سنة المهتمة بالصحة والعناية الطبيعية، الأمهات، والرياضيون. شرائح ذات الدخل المتوسط والمرتفع.";
-            if (q.includes("تسويق رقمي")) return "📱 أفضل استراتيجية: إعلانات تيك توك وإنستغرام بمحتوى تعليمي عن فوائد العسل، شراكات مع مؤثرين صحيين، وتجربة متجر إلكتروني سهل.";
-            if (q.includes("حملة")) return "🐝 حملة ‘عسل الحياة’: فيديوهات قصيرة توضح رحلة العسل من المنحل إلى المستهلك، هاشتاج #BeeAndHoney، وخصم 20% لأول 500 طلب.";
-            return "💡 التسويق بالقصص (Storytelling) يزيد الولاء للعلامة التجارية Bee & Honey بنسبة تصل إلى 40%.";
-        }
-        if (sectionContext === "مبيعات") {
-            if (q.includes("توزيع")) return "📦 أفضل قنوات: متجر إلكتروني رسمي، متاجر السوبر ماركت الفاخرة (كارفور، لولو)، والصيدليات الكبرى، وأسواق المزارعين.";
-            if (q.includes("زيادة المبيعات")) return "🚀 زيادة 30%: إطلاق برنامج ولاء، عروض ‘اشتري 2 واحصل على الثالث مجانًا’، وتوسيع التوزيع في المدن الجديدة خلال 6 أشهر.";
-            if (q.includes("عروض")) return "🎁 حزمة ‘هدية العسل’: علبة عسل سدر 500جم + عسل طلح 250جم + ملعقة خشبية بسعر 89 ريال بدل 120.";
-            return "💎 تدريب فريق المبيعات على تقنيات البيع الاستشاري يرفع متوسط قيمة الطلب بنسبة 25%.";
-        }
-        if (sectionContext === "أسواق") {
-            if (q.includes("الأمريكي")) return "🇺🇸 السوق الأمريكي: طلب عالٍ على العسل العضوي، لكن اشتراطات FDA صارمة. فرصة للعلامات المتخصصة، ندخل عبر أمازون وشركاء محليين.";
-            if (q.includes("السعودي")) return "🇸🇦 السوق السعودي: نمو كبير في قطاع الأغذية الفاخرة. Bee & Honey تستطيع المنافسة عبر التسعير التنافسي ومواصفات الجودة الخليجية.";
-            if (q.includes("أسواق جديدة")) return "🌏 أفضل الأسواق: الكويت، قطر، ثم ألمانيا وسنغافورة للعسل العضوي الفاخر. ابدأ بمعارض التجارة الدولية.";
-            return "🌎 توصية: دراسة السوق الأوروبي لمنتجات العسل العضوي المعتمد، بهامش ربح مرتفع لكن تكاليف شحن أكبر.";
-        }
-        return "🍯 شكراً لسؤالك! سيقوم فريق Bee & Honey بتحليل طلبك وتزويدك بإجابة مفصلة قريباً.";
     }
-
-    let currentSectionId = null;
-
-    // عرض لوحة التحكم بالبطاقات
+    
     function renderDashboard() {
         const container = document.getElementById('cardsContainer');
         container.innerHTML = '';
-        sections.forEach(section => {
+        sections.forEach(s => {
             const card = document.createElement('div');
             card.className = 'card';
-            card.setAttribute('data-id', section.id);
-            card.innerHTML = `
-                <div class="card-emoji">${section.emoji}</div>
-                <h3>${section.name}</h3>
-                <p>${section.desc}</p>
-            `;
-            card.addEventListener('click', () => openSection(section.id));
+            card.innerHTML = `<div class="card-emoji">${s.emoji}</div><h3>${s.name}</h3>`;
+            card.onclick = () => openSection(s.id);
             container.appendChild(card);
         });
     }
-
-    // فتح صفحة القسم (المستشار الذكي)
+    
+    let currentChatArea = null;
+    function addMessage(className, text, isLoading = false) {
+        if (!currentChatArea) return;
+        const msgDiv = document.createElement('div');
+        msgDiv.className = `message ${className}`;
+        if (isLoading) {
+            msgDiv.innerHTML = `<div class="loading-spinner"></div> جاري استشارة الخبير...`;
+            msgDiv.id = 'loadingMsg';
+        } else {
+            msgDiv.innerText = text;
+        }
+        currentChatArea.appendChild(msgDiv);
+        currentChatArea.scrollTop = currentChatArea.scrollHeight;
+    }
+    function removeLoading() {
+        const loading = document.getElementById('loadingMsg');
+        if (loading) loading.remove();
+    }
+    
+    async function handleQuestion(question, context, chatArea) {
+        currentChatArea = chatArea;
+        addMessage('user-msg', question);
+        addMessage('ai-msg', '', true);
+        const answer = await callOpenAI(question, context);
+        removeLoading();
+        addMessage('ai-msg', answer);
+    }
+    
     function openSection(sectionId) {
         const section = sections.find(s => s.id === sectionId);
         if (!section) return;
-        currentSectionId = sectionId;
-        const sectionContainer = document.getElementById('sectionContainer');
         const dashboard = document.getElementById('dashboardScreen');
+        const sectionContainer = document.getElementById('sectionContainer');
         dashboard.style.display = 'none';
         sectionContainer.style.display = 'block';
-        // بناء واجهة القسم
+        
         sectionContainer.innerHTML = `
-            <button class="back-btn" id="backToDashboard">← العودة للوحة الرئيسية</button>
+            <button class="back-btn" id="backBtn">← العودة للرئيسية</button>
             <div class="consultant-box">
                 <div class="consultant-header">
                     <div style="font-size:2.5rem;">${section.emoji}</div>
-                    <div>
-                        <h2>${section.name}</h2>
-                        <p style="color:#ad7a3d;">${section.desc} — اسأل مستشار Bee & Honey الذكي</p>
-                    </div>
+                    <div><h2>${section.name}</h2><p>اسأل الخبير الذكي في Bee & Honey</p></div>
                 </div>
                 <div class="questions-row" id="questionsRow"></div>
-                <div class="chat-area" id="chatArea">
-                    <div class="message ai-msg">🐝 مرحباً! أنا مستشار ${section.name} لشركة Bee & Honey. اختر أحد الأسئلة أدناه أو اكتب سؤالك الخاص.</div>
-                </div>
+                <div class="chat-area" id="chatArea"></div>
                 <div class="input-chat">
-                    <input type="text" id="userQuestionInput" placeholder="اكتب سؤالك هنا...">
-                    <button id="sendQuestionBtn">إرسال ➤</button>
+                    <input type="text" id="questionInput" placeholder="اكتب سؤالك هنا...">
+                    <button id="sendBtn">إرسال</button>
                 </div>
             </div>
         `;
-        // إضافة أزرة الأسئلة المحددة مسبقاً
+        
+        const chatArea = document.getElementById('chatArea');
+        currentChatArea = chatArea;
+        addMessage('ai-msg', `🐝 مرحباً! أنا الخبير الاستشاري في ${section.name} لشركة Bee & Honey. اسألني عن أي شيء يتعلق بهذا القسم.`);
+        
         const questionsRow = document.getElementById('questionsRow');
-        section.questions.forEach(qText => {
+        section.questions.forEach(q => {
             const btn = document.createElement('button');
             btn.className = 'q-btn';
-            btn.textContent = qText;
-            btn.addEventListener('click', () => {
-                addMessageToChat('user-msg', qText);
-                const response = getMockResponse(section.context, qText);
-                setTimeout(() => addMessageToChat('ai-msg', response), 300);
-            });
+            btn.innerText = q;
+            btn.onclick = () => handleQuestion(q, section.context, chatArea);
             questionsRow.appendChild(btn);
         });
-        // زر العودة
-        document.getElementById('backToDashboard').addEventListener('click', () => {
+        
+        document.getElementById('backBtn').onclick = () => {
             sectionContainer.style.display = 'none';
             dashboard.style.display = 'block';
-        });
-        // إرسال السؤال المخصص
-        const sendBtn = document.getElementById('sendQuestionBtn');
-        const inputField = document.getElementById('userQuestionInput');
-        const sendMessage = () => {
-            const question = inputField.value.trim();
-            if (question === "") return;
-            addMessageToChat('user-msg', question);
-            const response = getMockResponse(section.context, question);
-            setTimeout(() => addMessageToChat('ai-msg', response), 400);
-            inputField.value = '';
         };
-        sendBtn.addEventListener('click', sendMessage);
-        inputField.addEventListener('keypress', (e) => { if(e.key === 'Enter') sendMessage(); });
+        const input = document.getElementById('questionInput');
+        const sendBtn = document.getElementById('sendBtn');
+        const send = () => {
+            const q = input.value.trim();
+            if (q) handleQuestion(q, section.context, chatArea);
+            input.value = '';
+        };
+        sendBtn.onclick = send;
+        input.onkeypress = (e) => { if (e.key === 'Enter') send(); };
     }
-
-    function addMessageToChat(className, text) {
-        const chatArea = document.getElementById('chatArea');
-        if (!chatArea) return;
-        const msgDiv = document.createElement('div');
-        msgDiv.className = `message ${className}`;
-        msgDiv.innerHTML = `<span>${text}</span>`;
-        chatArea.appendChild(msgDiv);
-        chatArea.scrollTop = chatArea.scrollHeight;
-    }
-
-    // إدارة حالة تسجيل الدخول
+    
+    // تسجيل الدخول
     const loginScreen = document.getElementById('loginScreen');
     const dashboardScreen = document.getElementById('dashboardScreen');
     const loginBtn = document.getElementById('loginBtn');
-    const passwordInput = document.getElementById('passwordInput');
+    const pwdInput = document.getElementById('passwordInput');
     const loginError = document.getElementById('loginError');
     const logoutBtn = document.getElementById('logoutBtn');
-
+    
     function doLogin() {
-        const pwd = passwordInput.value;
-        if (pwd === "BeeHoney2024") {
+        if (pwdInput.value === "BeeHoney2024") {
             loginScreen.style.display = 'none';
             dashboardScreen.style.display = 'block';
-            document.getElementById('sectionContainer').style.display = 'none';
             renderDashboard();
             loginError.innerText = '';
-            passwordInput.value = '';
         } else {
-            loginError.innerText = '❌ كلمة المرور غير صحيحة. يرجى المحاولة مرة أخرى.';
+            loginError.innerText = '❌ كلمة المرور غير صحيحة';
         }
     }
-
-    loginBtn.addEventListener('click', doLogin);
-    passwordInput.addEventListener('keypress', (e) => { if(e.key === 'Enter') doLogin(); });
-
-    logoutBtn.addEventListener('click', () => {
+    loginBtn.onclick = doLogin;
+    pwdInput.onkeypress = (e) => { if (e.key === 'Enter') doLogin(); };
+    logoutBtn.onclick = () => {
         loginScreen.style.display = 'flex';
         dashboardScreen.style.display = 'none';
         document.getElementById('sectionContainer').style.display = 'none';
-        loginError.innerText = '';
-    });
-
-    // في البداية إخفاء اللوحة وإظهار تسجيل الدخول
-    loginScreen.style.display = 'flex';
-    dashboardScreen.style.display = 'none';
-    document.getElementById('sectionContainer').style.display = 'none';
+    };
 </script>
 </body>
 </html>
