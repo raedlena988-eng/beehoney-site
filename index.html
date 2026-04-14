@@ -4,285 +4,697 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>بيرغرايز - الجبيهة</title>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+<title>Mr. Crunchy Chicken - مستر كرنشي</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
-* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
-:root {
-  --red: #D41C22; --red2: #ff2d35; --gold: #F5C842;
-  --dark: #0d0d0d; --card: #181818; --border: #252525; --text: #f0ece4; --gray: #777;
-}
-body { font-family:'Tajawal',sans-serif; background:var(--dark); color:var(--text); }
+  :root {
+    --red: #E8161B;
+    --dark-red: #B01015;
+    --gold: #F5A623;
+    --darker: #050505;
+    --text: #F0EAD6;
+    --muted: #888;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--darker);
+    color: var(--text);
+    font-family: 'Tajawal', sans-serif;
+    overflow-x: hidden;
+  }
 
-.hero {
-position:relative; min-height:360px;
-display:flex; flex-direction:column; align-items:center; justify-content:center;
-padding:60px 24px 48px; text-align:center; overflow:hidden;
+/* NAVBAR */
+nav {
+position: fixed;
+top: 0; left: 0; right: 0;
+z-index: 1000;
+padding: 16px 36px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+background: rgba(5,5,5,0.92);
+backdrop-filter: blur(14px);
+border-bottom: 1px solid rgba(232,22,27,0.2);
+}
+.nav-logo {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 1.5rem;
+letter-spacing: 3px;
+color: var(–gold);
+}
+.nav-logo span { color: var(–red); }
+.nav-btns { display: flex; gap: 10px; }
+.nav-btn {
+padding: 9px 20px;
+border-radius: 6px;
+font-family: ‘Tajawal’, sans-serif;
+font-weight: 700;
+font-size: 0.9rem;
+cursor: pointer;
+text-decoration: none;
+display: flex;
+align-items: center;
+gap: 7px;
+transition: all 0.3s;
+border: none;
+color: #fff;
+}
+.nav-btn.red { background: var(–red); box-shadow: 0 0 18px rgba(232,22,27,0.3); }
+.nav-btn.red:hover { background: var(–dark-red); transform: translateY(-2px); }
+.nav-btn.green { background: #25D366; box-shadow: 0 0 18px rgba(37,211,102,0.3); }
+.nav-btn.green:hover { background: #1ebe5d; transform: translateY(-2px); }
+
+/* HERO */
+#hero {
+min-height: 100vh;
+position: relative;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+padding: 110px 20px 60px;
+overflow: hidden;
 }
 .hero-bg {
-position:absolute; inset:0;
-background: radial-gradient(ellipse 90% 70% at 50% 20%, #6e0000 0%, transparent 65%),
-radial-gradient(ellipse 50% 50% at 85% 85%, #2a0000 0%, transparent 55%), #0d0d0d;
+position: absolute; inset: 0;
+background:
+radial-gradient(ellipse 80% 60% at 50% 100%, rgba(232,22,27,0.18) 0%, transparent 70%),
+radial-gradient(ellipse 50% 40% at 80% 20%, rgba(245,166,35,0.07) 0%, transparent 60%),
+linear-gradient(180deg, #0A0A0A 0%, #0d0305 100%);
 }
-.hero-grid {
-position:absolute; inset:0;
-background-image: linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),
-linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);
-background-size:44px 44px;
+.ring {
+position: absolute;
+border-radius: 50%;
+border: 1px solid rgba(232,22,27,0.1);
+animation: pulse 4s ease-in-out infinite;
 }
-.logo-wrap { position:relative; margin-bottom:22px; z-index:1; }
-.logo-glow {
-position:absolute; width:110px; height:110px; border-radius:50%;
-background:var(–red); filter:blur(35px); opacity:0.4;
-top:50%; left:50%; transform:translate(-50%,-50%);
+.ring:nth-child(1) { width: 500px; height: 500px; }
+.ring:nth-child(2) { width: 800px; height: 800px; animation-delay: 1.3s; opacity: 0.5; }
+.ring:nth-child(3) { width: 1100px; height: 1100px; animation-delay: 2.6s; opacity: 0.25; }
+@keyframes pulse {
+0%,100% { transform:scale(1); opacity:0.3; }
+50% { transform:scale(1.04); opacity:0.6; }
 }
-.logo-box {
-width:90px; height:90px; background:#fff; border-radius:22px;
-display:inline-flex; align-items:center; justify-content:center;
-font-size:54px; font-weight:900; color:var(–red); position:relative;
-box-shadow:0 0 0 1px rgba(255,255,255,0.08), 0 24px 60px rgba(212,28,34,0.5);
-}
-.hero h1 { font-size:44px; font-weight:900; letter-spacing:-1.5px; position:relative; z-index:1; }
-.hero h1 sup { font-size:20px; color:var(–red2); vertical-align:super; }
-.hero-sub { font-size:14px; color:rgba(255,255,255,0.45); margin-top:8px; position:relative; z-index:1; }
 .hero-badge {
-display:inline-flex; align-items:center; gap:6px;
-background:rgba(245,200,66,0.1); border:1px solid rgba(245,200,66,0.2);
-color:var(–gold); font-size:12px; font-weight:600;
-padding:7px 16px; border-radius:30px; margin-top:14px; position:relative; z-index:1;
+position: relative;
+background: linear-gradient(135deg, var(–red), var(–dark-red));
+color: #fff;
+font-weight: 700;
+font-size: 0.78rem;
+letter-spacing: 2px;
+padding: 6px 18px;
+border-radius: 50px;
+margin-bottom: 26px;
+box-shadow: 0 0 28px rgba(232,22,27,0.4);
+animation: fadeIn 0.7s ease both;
+}
+.hero-title {
+position: relative;
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: clamp(4.5rem, 13vw, 10rem);
+line-height: 0.88;
+letter-spacing: 4px;
+animation: fadeIn 0.7s 0.15s ease both;
+}
+.hero-title .g { color: var(–gold); text-shadow: 0 0 40px rgba(245,166,35,0.5); }
+.hero-title .r { color: var(–red); text-shadow: 0 0 40px rgba(232,22,27,0.7); }
+.hero-sub {
+position: relative;
+font-size: clamp(1.4rem, 4vw, 2.6rem);
+font-weight: 900;
+color: rgba(255,255,255,0.6);
+margin-top: 8px;
+animation: fadeIn 0.7s 0.3s ease both;
+}
+.hero-tag {
+position: relative;
+color: rgba(240,234,214,0.5);
+font-size: 1.05rem;
+margin-top: 18px;
+max-width: 440px;
+line-height: 1.8;
+animation: fadeIn 0.7s 0.45s ease both;
+}
+.hero-ctas {
+position: relative;
+display: flex;
+gap: 14px;
+margin-top: 42px;
+flex-wrap: wrap;
+justify-content: center;
+animation: fadeIn 0.7s 0.6s ease both;
+}
+.h-btn {
+padding: 15px 34px;
+border-radius: 7px;
+font-family: ‘Tajawal’, sans-serif;
+font-weight: 800;
+font-size: 1rem;
+cursor: pointer;
+text-decoration: none;
+display: flex;
+align-items: center;
+gap: 9px;
+transition: all 0.3s;
+border: none;
+color: #fff;
+}
+.h-btn.red { background: linear-gradient(135deg, var(–red), var(–dark-red)); box-shadow: 0 6px 28px rgba(232,22,27,0.4); }
+.h-btn.red:hover { transform: translateY(-3px); box-shadow: 0 10px 40px rgba(232,22,27,0.6); }
+.h-btn.green { background: linear-gradient(135deg, #25D366, #1ebe5d); box-shadow: 0 6px 28px rgba(37,211,102,0.35); }
+.h-btn.green:hover { transform: translateY(-3px); box-shadow: 0 10px 40px rgba(37,211,102,0.55); }
+.h-btn.ghost { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14); }
+.h-btn.ghost:hover { background: rgba(255,255,255,0.11); transform: translateY(-3px); }
+
+@keyframes fadeIn {
+from { opacity:0; transform:translateY(-18px); }
+to { opacity:1; transform:translateY(0); }
 }
 
-.cta-row { padding:18px 14px 4px; display:flex; gap:10px; }
-.btn {
-flex:1; display:flex; align-items:center; justify-content:center; gap:9px;
-padding:17px 10px; border-radius:16px; font-family:‘Tajawal’,sans-serif;
-font-size:18px; font-weight:800; text-decoration:none; color:#fff;
-transition:transform .12s, filter .12s;
+/* STATS */
+.stats {
+background: linear-gradient(135deg, var(–red), var(–dark-red));
+padding: 26px 40px;
+display: flex;
+justify-content: center;
+gap: 55px;
+flex-wrap: wrap;
 }
-.btn:active { transform:scale(0.96); filter:brightness(.88); }
-.btn svg { width:22px; height:22px; fill:#fff; flex-shrink:0; }
-.btn-wa { background:linear-gradient(135deg,#1dbf53,#25D366); box-shadow:0 8px 28px rgba(37,211,102,.28),0 2px 8px rgba(0,0,0,.35); }
-.btn-call { background:linear-gradient(135deg,#a81117,#D41C22); box-shadow:0 8px 28px rgba(212,28,34,.38),0 2px 8px rgba(0,0,0,.35); }
+.stat { text-align: center; color: #fff; }
+.stat-n { font-family: ‘Bebas Neue’, sans-serif; font-size: 2.6rem; letter-spacing: 2px; line-height: 1; }
+.stat-l { font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; opacity: 0.85; margin-top: 3px; }
 
-.hours {
-margin:14px 14px 0; background:var(–card); border:1px solid var(–border);
-border-radius:14px; padding:13px 16px; display:flex; align-items:center; gap:10px;
-font-size:13px; color:var(–gray);
+/* SECTION HEADER */
+.sec-head { text-align: center; padding: 80px 20px 44px; }
+.sec-head .ey { font-size: 0.72rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(–red); margin-bottom: 12px; }
+.sec-head h2 { font-family: ‘Bebas Neue’, sans-serif; font-size: clamp(2.4rem, 6vw, 4.2rem); letter-spacing: 3px; color: #fff; line-height: 1; }
+.sec-head h2 span { color: var(–gold); }
+.sec-head p { color: rgba(240,234,214,0.5); font-size: 1rem; max-width: 460px; margin: 14px auto 0; line-height: 1.75; }
+
+/* ABOUT */
+#about {
+padding: 70px 40px;
+max-width: 1080px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 65px;
+align-items: center;
 }
-.dot { width:8px; height:8px; background:#25D366; border-radius:50%; flex-shrink:0;
-box-shadow:0 0 0 3px rgba(37,211,102,.18); animation:blink 2s infinite; }
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
-
-.sec { display:flex; align-items:center; gap:10px; padding:26px 14px 11px; }
-.sec h2 { font-size:20px; font-weight:900; white-space:nowrap; }
-.sec-line { flex:1; height:1px; background:linear-gradient(to left,transparent,var(–border)); }
-.sec-pill { background:var(–red); color:#fff; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px; }
-
-.menu { padding:0 14px; display:flex; flex-direction:column; gap:2px; }
-.mc { background:var(–card); border-bottom:1px solid var(–border); }
-.mc:first-child { border-radius:18px 18px 0 0; }
-.mc:last-child { border-radius:0 0 18px 18px; border-bottom:none; }
-.mc:only-child { border-radius:18px; }
-.mc-body { padding:15px 15px 0; }
-.mc-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:5px; }
-.mc-name { font-size:16px; font-weight:800; line-height:1.3; }
-.hot { background:rgba(255,70,0,.13); border:1px solid rgba(255,70,0,.28); color:#ff6535;
-font-size:11px; font-weight:700; padding:3px 8px; border-radius:8px; white-space:nowrap; flex-shrink:0; }
-.mc-desc { font-size:12px; color:#5a5a5a; line-height:1.65; padding-bottom:12px; }
-.prices { display:flex; gap:0; border-top:1px solid var(–border); }
-.pc { flex:1; padding:10px 4px; text-align:center; }
-.pc+.pc { border-right:1px solid var(–border); }
-.pl { font-size:10px; color:#484848; display:block; margin-bottom:3px; }
-.pv { font-size:14px; font-weight:800; color:var(–gold); display:block; }
-
-.grid2 { padding:0 14px; display:grid; grid-template-columns:1fr 1fr; gap:8px; }
-.gc { background:var(–card); border:1px solid var(–border); border-radius:14px; padding:16px 12px; text-align:center; }
-.gi { font-size:28px; display:block; margin-bottom:7px; }
-.gn { font-size:14px; font-weight:700; line-height:1.3; }
-.gs { font-size:11px; color:var(–gray); margin-top:2px; }
-.gp { font-size:17px; font-weight:900; color:var(–gold); margin-top:8px; }
-
-.blist { padding:0 14px; display:flex; flex-direction:column; gap:8px; }
-.bc { background:var(–card); border:1px solid var(–border); border-radius:14px; padding:14px 16px; display:flex; justify-content:space-between; align-items:center; }
-.bn { font-size:16px; font-weight:700; }
-.bps { display:flex; gap:14px; }
-.bp { text-align:center; }
-.bp span { font-size:11px; color:var(–gray); display:block; }
-.bp strong { font-size:15px; color:var(–gold); font-weight:800; }
-
-.note {
-margin:20px 14px 0; padding:14px 16px;
-background:rgba(212,28,34,.07); border:1px solid rgba(212,28,34,.18);
-border-radius:14px; font-size:12px; color:#555; text-align:center; line-height:1.9;
+.ab-ey { font-size: 0.72rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(–red); margin-bottom: 16px; }
+.ab-h2 { font-family: ‘Bebas Neue’, sans-serif; font-size: clamp(2.5rem, 5vw, 3.6rem); letter-spacing: 2px; line-height: 1; margin-bottom: 22px; }
+.ab-h2 span { color: var(–gold); }
+.ab-p { color: rgba(240,234,214,0.62); font-size: 1rem; line-height: 1.9; margin-bottom: 14px; }
+.feats { margin-top: 26px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.feat {
+display: flex; align-items: center; gap: 9px;
+background: rgba(232,22,27,0.07);
+border: 1px solid rgba(232,22,27,0.15);
+border-radius: 8px; padding: 11px 15px;
+font-size: 0.88rem; font-weight: 600;
 }
-.footer { margin-top:28px; padding:28px 20px 100px; text-align:center; border-top:1px solid var(–border); }
-.footer p { font-size:13px; color:#404040; margin-bottom:6px; }
+.card-box {
+background: linear-gradient(135deg, rgba(232,22,27,0.08), rgba(245,166,35,0.05));
+border: 1px solid rgba(232,22,27,0.2);
+border-radius: 18px;
+padding: 46px 32px;
+text-align: center;
+}
+.card-icon { font-size: 4.5rem; margin-bottom: 18px; display: block; }
+.card-box h3 { font-family: ‘Bebas Neue’, sans-serif; font-size: 1.9rem; letter-spacing: 2px; color: var(–gold); margin-bottom: 10px; }
+.card-box p { color: rgba(240,234,214,0.55); font-size: 0.9rem; line-height: 1.7; }
+.branches { margin-top: 20px; display: flex; flex-direction: column; gap: 9px; }
+.br {
+display: flex; align-items: center; gap: 10px;
+background: rgba(255,255,255,0.04);
+border-radius: 7px; padding: 11px 15px;
+font-size: 0.88rem; font-weight: 600;
+color: rgba(240,234,214,0.78);
+}
+.dot { width: 8px; height: 8px; background: var(–red); border-radius: 50%; box-shadow: 0 0 7px var(–red); flex-shrink: 0; }
 
-.sticky {
-position:fixed; bottom:0; left:0; right:0; z-index:999;
-display:flex; gap:10px; padding:10px 12px 26px;
-background:linear-gradient(to top,#0d0d0d 65%,transparent);
+/* REVIEWS */
+#reviews { padding: 0 40px 80px; }
+.rev-grid {
+max-width: 1080px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 22px;
 }
-.sticky a {
-flex:1; display:flex; align-items:center; justify-content:center; gap:8px;
-padding:15px; border-radius:14px; font-family:‘Tajawal’,sans-serif;
-font-size:17px; font-weight:800; text-decoration:none; color:#fff;
-transition:transform .12s;
+.rev-card {
+background: rgba(255,255,255,0.03);
+border: 1px solid rgba(255,255,255,0.07);
+border-radius: 16px;
+padding: 26px 24px;
+position: relative;
+transition: all 0.3s;
+overflow: hidden;
 }
-.sticky a:active { transform:scale(.96); }
-.sticky svg { width:20px; height:20px; fill:#fff; }
-.s-wa { background:linear-gradient(135deg,#1dbf53,#25D366); box-shadow:0 6px 22px rgba(37,211,102,.28); }
-.s-call { background:linear-gradient(135deg,#a81117,#D41C22); box-shadow:0 6px 22px rgba(212,28,34,.35); }
+.rev-card::before {
+content: ‘”’;
+position: absolute; top: -12px; right: 18px;
+font-size: 7rem; font-family: ‘Bebas Neue’, sans-serif;
+color: var(–red); opacity: 0.07; line-height: 1;
+pointer-events: none;
+}
+.rev-card:hover { border-color: rgba(232,22,27,0.25); background: rgba(232,22,27,0.04); transform: translateY(-4px); }
+.rev-card.feat { border-color: rgba(245,166,35,0.28); background: rgba(245,166,35,0.04); }
+.stars { color: var(–gold); font-size: 1rem; letter-spacing: 2px; margin-bottom: 13px; }
+.rev-txt { font-size: 0.92rem; line-height: 1.85; color: rgba(240,234,214,0.72); margin-bottom: 18px; position: relative; }
+.rev-auth { display: flex; align-items: center; gap: 11px; }
+.av { width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.95rem; flex-shrink: 0; }
+.rev-name { font-weight: 700; font-size: 0.92rem; }
+.rev-date { font-size: 0.76rem; color: var(–muted); margin-top: 2px; }
+
+/* MENU SECTION */
+#menu-section { padding: 0 40px 90px; }
+.menu-wrap { max-width: 820px; margin: 0 auto; }
+
+.menu-btn {
+width: 100%;
+background: linear-gradient(135deg, rgba(232,22,27,0.1), rgba(245,166,35,0.07));
+border: 2px solid rgba(232,22,27,0.32);
+border-radius: 20px;
+padding: 46px 38px;
+cursor: pointer;
+transition: all 0.4s;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 16px;
+position: relative;
+overflow: hidden;
+font-family: ‘Tajawal’, sans-serif;
+color: var(–text);
+}
+.menu-btn:hover {
+border-color: rgba(232,22,27,0.65);
+transform: translateY(-4px);
+box-shadow: 0 18px 55px rgba(232,22,27,0.18);
+}
+.menu-btn.open { border-color: rgba(232,22,27,0.65); }
+.menu-big-icon { font-size: 3.8rem; line-height: 1; }
+.menu-btn-title { font-family: ‘Bebas Neue’, sans-serif; font-size: 2.6rem; letter-spacing: 4px; }
+.menu-btn-sub { font-size: 0.95rem; color: rgba(240,234,214,0.45); font-weight: 500; }
+.menu-arr {
+width: 46px; height: 46px; border-radius: 50%;
+background: var(–red); display: flex; align-items: center; justify-content: center;
+color: #fff; font-size: 1.2rem;
+transition: transform 0.4s;
+box-shadow: 0 0 18px rgba(232,22,27,0.4);
+}
+.menu-btn.open .menu-arr { transform: rotate(180deg); }
+
+.menu-body {
+display: none;
+margin-top: 20px;
+background: rgba(255,255,255,0.02);
+border: 1px solid rgba(255,255,255,0.06);
+border-radius: 18px;
+overflow: hidden;
+}
+.menu-body.open { display: block; }
+
+.tabs {
+display: flex;
+background: rgba(0,0,0,0.3);
+overflow-x: auto;
+scrollbar-width: none;
+border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.tabs::-webkit-scrollbar { display: none; }
+.tab {
+padding: 15px 24px;
+background: none; border: none;
+color: rgba(240,234,214,0.4);
+font-family: ‘Tajawal’, sans-serif; font-weight: 700; font-size: 0.88rem;
+cursor: pointer; white-space: nowrap;
+transition: all 0.3s;
+border-bottom: 3px solid transparent;
+display: flex; align-items: center; gap: 6px;
+}
+.tab:hover { color: rgba(240,234,214,0.75); }
+.tab.active { color: #fff; border-bottom-color: var(–red); background: rgba(232,22,27,0.06); }
+
+.panel { display: none; padding: 32px; }
+.panel.active { display: block; }
+.panel-title {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 1.7rem; letter-spacing: 2px;
+color: var(–gold); margin-bottom: 22px;
+display: flex; align-items: center; gap: 10px;
+}
+.items-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; }
+.item {
+background: rgba(255,255,255,0.03);
+border: 1px solid rgba(255,255,255,0.07);
+border-radius: 11px; padding: 16px 18px;
+transition: all 0.3s; position: relative;
+}
+.item:hover { border-color: rgba(232,22,27,0.28); background: rgba(232,22,27,0.05); transform: translateY(-2px); }
+.item-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 6px; }
+.item-name { font-weight: 700; font-size: 0.97rem; color: #fff; line-height: 1.3; }
+.item-ar { font-size: 0.78rem; color: rgba(240,234,214,0.42); margin-top: 2px; }
+.item-price { font-family: ‘Bebas Neue’, sans-serif; font-size: 1.45rem; color: var(–gold); letter-spacing: 1px; white-space: nowrap; flex-shrink: 0; }
+.item-price small { font-family: ‘Tajawal’, sans-serif; font-size: 0.65rem; color: rgba(245,166,35,0.65); font-weight: 700; }
+.divider { height: 1px; background: rgba(255,255,255,0.05); margin: 26px 0; }
+.badge-new { position: absolute; top: 9px; left: 9px; background: var(–red); color: #fff; font-size: 0.6rem; font-weight: 700; padding: 2px 7px; border-radius: 50px; letter-spacing: 1px; }
+
+/* CTA */
+#cta { padding: 76px 40px; text-align: center; position: relative; overflow: hidden; }
+#cta::before {
+content: ‘’; position: absolute; inset: 0;
+background: radial-gradient(ellipse 80% 55% at 50% 50%, rgba(232,22,27,0.11) 0%, transparent 70%);
+}
+#cta h2 { position: relative; font-family: ‘Bebas Neue’, sans-serif; font-size: clamp(2.4rem, 6vw, 4.2rem); letter-spacing: 3px; margin-bottom: 14px; }
+#cta p { position: relative; color: rgba(240,234,214,0.5); font-size: 1.05rem; margin-bottom: 38px; }
+.cta-btns { position: relative; display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; }
+.cta-btn {
+padding: 17px 42px; border-radius: 8px;
+font-family: ‘Tajawal’, sans-serif; font-weight: 800; font-size: 1.05rem;
+cursor: pointer; text-decoration: none;
+display: flex; align-items: center; gap: 11px;
+transition: all 0.3s; border: none; color: #fff;
+}
+.cta-btn.red { background: linear-gradient(135deg, var(–red), var(–dark-red)); box-shadow: 0 7px 28px rgba(232,22,27,0.4); }
+.cta-btn.red:hover { transform: translateY(-4px); box-shadow: 0 14px 45px rgba(232,22,27,0.6); }
+.cta-btn.green { background: linear-gradient(135deg, #25D366, #1ebe5d); box-shadow: 0 7px 28px rgba(37,211,102,0.35); }
+.cta-btn.green:hover { transform: translateY(-4px); box-shadow: 0 14px 45px rgba(37,211,102,0.55); }
+
+/* FOOTER */
+footer { background: rgba(0,0,0,0.5); border-top: 1px solid rgba(255,255,255,0.05); padding: 36px 40px 28px; text-align: center; }
+.f-logo { font-family: ‘Bebas Neue’, sans-serif; font-size: 1.9rem; letter-spacing: 3px; color: var(–gold); margin-bottom: 10px; }
+footer p { color: rgba(240,234,214,0.28); font-size: 0.83rem; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+nav { padding: 13px 18px; }
+.nav-btn span { display: none; }
+#about { grid-template-columns: 1fr; gap: 36px; padding: 50px 20px; }
+.rev-grid { grid-template-columns: 1fr; }
+.stats { gap: 28px; padding: 22px 18px; }
+#reviews, #menu-section { padding: 0 18px 60px; }
+.panel { padding: 22px 18px; }
+.feats { grid-template-columns: 1fr; }
+#cta { padding: 56px 20px; }
+.menu-btn { padding: 32px 22px; }
+}
+
+/* Scroll reveal helper */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
 </style>
 
 </head>
 <body>
 
-<div class="hero">
+<!-- NAV -->
+
+<nav>
+  <div class="nav-logo">MR.<span>CRUNCHY</span></div>
+  <div class="nav-btns">
+    <a href="tel:065333338" class="nav-btn red">📞 اتصل</a>
+    <a href="https://wa.me/96265333338" target="_blank" class="nav-btn green">💬 واتساب</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+
+<section id="hero">
   <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="logo-wrap">
-    <div class="logo-glow"></div>
-    <div class="logo-box">B</div>
+  <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+  <div class="hero-badge">🔥 الأفضل في عالم الدجاج المقرمش</div>
+  <h1 class="hero-title"><span class="g">MR.</span><br><span class="r">CRUNCHY</span><br>CHICKEN</h1>
+  <p class="hero-sub">مستر كرنشي تشكن</p>
+  <p class="hero-tag">تجربة دجاج مقرمش لا مثيل لها — الخيار الأفضل في كل مرة</p>
+  <div class="hero-ctas">
+    <a href="tel:065333338" class="h-btn red">📞 اطلب الآن</a>
+    <a href="https://wa.me/96265333338" target="_blank" class="h-btn green">💬 واتساب</a>
+    <button onclick="document.getElementById('menu-section').scrollIntoView({behavior:'smooth'}); setTimeout(()=>{if(!document.getElementById('menuBody').classList.contains('open'))toggleMenu();},600);" class="h-btn ghost">🍗 المنيو</button>
   </div>
-  <h1>بيرغرايز<sup>®</sup></h1>
-  <p class="hero-sub">فرع الجبيهة &nbsp;·&nbsp; عمّان، الأردن</p>
-  <div class="hero-badge">🔥 لحم بقري طبيعي ١٠٠٪ · خبز بطاطا طازج</div>
+</section>
+
+<!-- STATS -->
+
+<div class="stats">
+  <div class="stat"><div class="stat-n">191K</div><div class="stat-l">متابع</div></div>
+  <div class="stat"><div class="stat-n">4.1★</div><div class="stat-l">تقييم جوجل</div></div>
+  <div class="stat"><div class="stat-n">4</div><div class="stat-l">فروع</div></div>
+  <div class="stat"><div class="stat-n">413+</div><div class="stat-l">منشور</div></div>
 </div>
 
-<div class="cta-row">
-  <a href="https://wa.me/96265900333" class="btn btn-wa">
-    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    واتساب
-  </a>
-  <a href="tel:+96265900333" class="btn btn-call">
-    <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-    اتصال
-  </a>
-</div>
+<!-- ABOUT -->
 
-<div class="hours">
-  <span class="dot"></span>
-  <span>مفتوح الآن · أحد–خميس ١٠ص–١ب · جمعة–سبت ١٠ص–٢ب</span>
-</div>
+<section id="about">
+  <div>
+    <div class="ab-ey">✦ من نحن</div>
+    <h2 class="ab-h2">الخيار <span>الأفضل</span><br>دائماً</h2>
+    <p class="ab-p">مستر كرنشي تشكن هو وجهتك المثالية لأشهى وأقرمش دجاج في الأردن. نقدم تجربة لا تُنسى من الطعم الأصيل المقرمش.</p>
+    <p class="ab-p">سواء كنت تبحث عن وجبة عائلية كبيرة أو وجبة فردية سريعة — عندنا كل ما تحتاجه بأسعار تنافسية وجودة لا تُضاهى.</p>
+    <div class="feats">
+      <div class="feat">🔥 تحضير طازج يومياً</div>
+      <div class="feat">🚀 توصيل سريع</div>
+      <div class="feat">⭐ جودة مضمونة</div>
+      <div class="feat">👨‍👩‍👧 مناسب للعائلات</div>
+    </div>
+  </div>
+  <div class="card-box">
+    <span class="card-icon">🍗</span>
+    <h3>فروعنا</h3>
+    <p>نخدمك في 4 مواقع استراتيجية في عمان</p>
+    <div class="branches">
+      <div class="br"><div class="dot"></div>فرع خلدا</div>
+      <div class="br"><div class="dot"></div>فرع الجامعة</div>
+      <div class="br"><div class="dot"></div>فرع صويلح</div>
+      <div class="br"><div class="dot"></div>فرع البيادر</div>
+    </div>
+  </div>
+</section>
 
-<!-- BEEF -->
+<!-- REVIEWS -->
 
-<div class="sec"><h2>🥩 بيرغر لحم</h2><div class="sec-line"></div></div>
-<div class="menu">
-  <div class="mc"><div class="mc-body"><div class="mc-top"><div class="mc-name">Machine · ماشين</div></div><div class="mc-desc">لحم، خس، بندورة، مخلل، بصل، موزاريلا ستيكس، جبنة شدر، سويس، لحم مقدد، صوص بيرغرايز</div></div><div class="prices"><div class="pc"><span class="pl">بيرغر</span><span class="pv">3.95</span></div><div class="pc"><span class="pl">وجبة</span><span class="pv">5.65</span></div><div class="pc"><span class="pl">دبل</span><span class="pv">5.80</span></div><div class="pc"><span class="pl">دبل وجبة</span><span class="pv">6.95</span></div></div></div>
-  <div class="mc"><div class="mc-body"><div class="mc-top"><div class="mc-name">Jeddah · جدة</div></div><div class="mc-desc">لحم، خس، بندورة، مخلل، بصل، جبنة مدخنة، باربيكيو صوص</div></div><div class="prices"><div class="pc"><span class="pl">بيرغر</span><span class="pv">3.70</span></div><div class="pc"><span class="pl">وجبة</span><span class="pv">5.40</span></div><div class="pc"><span class="pl">دبل</span><span class="pv">5.60</span></div><div class="pc"><span class="pl">دبل وجبة</span><span class="pv">6.75</span></div></div></div>
-  <div class="mc"><div class="mc-body"><div class="mc-top"><div class="mc-name">AlRebat · الرباط</div><span class="hot">🌶 حار</span></div><div class="mc-desc">لحم، خس، بندورة، مخلل، بصل، جبنة شدر، هلابينو، سويت تشيلي، بفالو صوص</div></div><div class="prices"><div class="pc"><span class="pl">بيرغر</span><span class="pv">3.45</span></div><div class="pc"><span class="pl">وجبة</span><span class="pv">5.15</span></div><div class="pc"><span class="pl">دبل</span><span class="pv">5.60</span></div><div class="pc"><span class="pl">دبل وجبة</span><span class="pv">6.60</span></div></div></div>
-  <div class="mc"><div class="mc-body"><div class="mc-top"><div class="mc-name">Burgerizz Classic · كلاسيك</div></div><div class="mc-desc">لحم، خس، بندورة، مخلل، بصل، جبنة شدر، صوص بيرغرايز</div></div><div class="prices"><div class="pc"><span class="pl">بيرغر</span><span class="pv">2.95</span></div><div class="pc"><span class="pl">وجبة</span><span class="pv">4.55</span></div><div class="pc"><span class="pl">دبل</span><span class="pv">5.20</span></div><div class="pc"><span class="pl">دبل وجبة</span><span class="pv">6.25</span></div></div></div>
-  <div class="mc"><div class="mc-body"><div class="mc-top"><div class="mc-name">White Mushroom · وايت مشروم</div></div><div class="mc-desc">لحم، خس، مخلل، بصل، جبنة سويس، وايت مشروم صوص</div></div><div class="prices"><div class="pc"><span class="pl">بيرغر</span><span class="pv">3.55</span></div><div class="pc"><span class="pl">وجبة</span><span class="pv">5.25</span></div><div class="pc"><span class="pl">دبل</span><span class="pv">5.60</span></div><div class="pc"><span class="pl">دبل وجبة</span><span class="pv">6.70</span></div></div></div>
-  <div class="mc"><div class="mc-body"><div class="mc-top"><div class="mc-name">Rocca · روكا</div></div><div class="mc-desc">لحم، جرجير، مخلل، بصل مكرمل، جبنة سويس، وايت مشروم صوص</div></div><div class="prices"><div class="pc"><span class="pl">بيرغر</span><span class="pv">4.00</span></div><div class="pc"><span class="pl">وجبة</span><span class="pv">5.75</span></div><div class="pc"><span class="pl">دبل</span><span class="pv">5.80</span></div><div class="pc"><span class="pl">دبل وجبة</span><span class="pv">7.20</span></div></div></div>
-  <div class="mc"><div class="mc-body"><div class="mc-top"><div class="mc-name">AlQuds · القدس</div></div><div class="mc-desc">لحم، خس، بندورة، مخلل، بصل، جبنة شدر، شيبس ستيكس، ذرة حلوة</div></div><div class="prices"><div class="pc"><span class="pl">بيرغر</span><span class="pv">3.30</span></div><div class="pc"><span class="pl">وجبة</span><span class="pv">4.90</span></div><div class="pc"><span class="pl">دبل</span><span class="pv">5.40</span></div><div class="pc"><span class="pl">دبل وجبة</span><span class="pv">6.25</span></div></div></div>
-  <div class="mc"><div class="mc-body"><div class="mc-top"><div class="mc-name">Mini Cheese Burger · ميني</div></div><div class="mc-desc">لحم، خس، جبنة شدر، بيرغرايز صوص</div></div><div class="prices"><div class="pc"><span class="pl">بيرغر</span><span class="pv">2.50</span></div></div></div>
-</div>
+<section id="reviews">
+  <div class="sec-head">
+    <div class="ey">✦ آراء زبائننا</div>
+    <h2>ماذا يقولون <span>عنا</span></h2>
+    <p>آلاف الزبائن السعداء لا يمكن أن يكونوا مخطئين</p>
+  </div>
+  <div class="rev-grid">
+    <div class="rev-card feat reveal">
+      <div class="stars">★★★★★</div>
+      <p class="rev-txt">والله أحلى دجاج أكلته في حياتي! القرمشة ما بتتوقف حتى آخر قطعة. الصوص كمان ممتاز وتوصيل سريع 🔥</p>
+      <div class="rev-auth"><div class="av" style="background:linear-gradient(135deg,#E8161B,#B01015)">أ</div><div><div class="rev-name">أحمد الشمري</div><div class="rev-date">قبل أسبوع</div></div></div>
+    </div>
+    <div class="rev-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="rev-txt">الوجبة العائلية كانت رائعة جداً، كل شي طازج والسعر معقول مقارنة بالجودة. ما رح تندم تجرب مستر كرنشي!</p>
+      <div class="rev-auth"><div class="av" style="background:linear-gradient(135deg,#F5A623,#e09010)">س</div><div><div class="rev-name">سارة النابلسي</div><div class="rev-date">قبل 3 أيام</div></div></div>
+    </div>
+    <div class="rev-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="rev-txt">أنا زبون منذ سنتين وما خذلتني ولا مرة. التندرز خاصة أحسن شي بالمنيو. استمروا على هاد المستوى!</p>
+      <div class="rev-auth"><div class="av" style="background:linear-gradient(135deg,#25D366,#1ebe5d)">م</div><div><div class="rev-name">محمد العمري</div><div class="rev-date">قبل يومين</div></div></div>
+    </div>
+    <div class="rev-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="rev-txt">البايتس والأجنحة بالصوصات ذوقهم ما شاء الله! جربت سويت تشيلي وبافلو وكلهم خيال. رح أرجع تأكيد!</p>
+      <div class="rev-auth"><div class="av" style="background:linear-gradient(135deg,#8B5CF6,#6D28D9)">ل</div><div><div class="rev-name">لينا حداد</div><div class="rev-date">قبل 5 أيام</div></div></div>
+    </div>
+    <div class="rev-card reveal">
+      <div class="stars">★★★★☆</div>
+      <p class="rev-txt">خدمة ممتازة وجودة عالية. الساندويشات كرنشي والكلاسيك من أحسن الساندويشات بعمان. شكراً مستر كرنشي!</p>
+      <div class="rev-auth"><div class="av" style="background:linear-gradient(135deg,#06B6D4,#0891b2)">ع</div><div><div class="rev-name">عمر الزعبي</div><div class="rev-date">قبل أسبوع</div></div></div>
+    </div>
+    <div class="rev-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="rev-txt">وجبة الأطفال ممتازة وولادي ما بدهم غيرها! الفريق محترمين ومرحبين دايماً 💛</p>
+      <div class="rev-auth"><div class="av" style="background:linear-gradient(135deg,#EC4899,#DB2777)">ر</div><div><div class="rev-name">رنا أبو علي</div><div class="rev-date">قبل 4 أيام</div></div></div>
+    </div>
+  </div>
+</section>
 
-<!-- CHICKEN -->
+<!-- MENU -->
 
-<div class="sec"><h2>🍗 بيرغر دجاج</h2><div class="sec-line"></div></div>
-<div class="menu">
-  <div class="mc"><div class="mc-body"><div class="mc-top"><div class="mc-name">Crunchy · كرنشي</div><span class="hot">متوفر حار</span></div><div class="mc-desc">صدر دجاج مقلي، خس، جبنة سويس، صوص بيرغرايز</div></div><div class="prices"><div class="pc"><span class="pl">بيرغر</span><span class="pv">3.65</span></div><div class="pc"><span class="pl">وجبة</span><span class="pv">5.35</span></div><div class="pc"><span class="pl">دبل</span><span class="pv">5.00</span></div><div class="pc"><span class="pl">دبل وجبة</span><span class="pv">6.70</span></div></div></div>
-  <div class="mc"><div class="mc-body"><div class="mc-top"><div class="mc-name">Hot Z · هوت Z</div><span class="hot">🌶 حار</span></div><div class="mc-desc">صدر مقرمش، خس، جبنة سويس، هلابينو، كرات الجبنة، دايتمايت صوص</div></div><div class="prices"><div class="pc"><span class="pl">بيرغر</span><span class="pv">4.25</span></div><div class="pc"><span class="pl">وجبة</span><span class="pv">5.95</span></div></div></div>
-  <div class="mc"><div class="mc-body"><div class="mc-top"><div class="mc-name">Crunch Slaw · كرنش سلو</div></div><div class="mc-desc">صدر مقرمش، كول سلو، خس، مخلل، جبنة شدر، كوم باك صوص</div></div><div class="prices"><div class="pc"><span class="pl">بيرغر</span><span class="pv">3.65</span></div><div class="pc"><span class="pl">وجبة</span><span class="pv">5.35</span></div></div></div>
-  <div class="mc"><div class="mc-body"><div class="mc-top"><div class="mc-name">Cairo · القاهرة</div><span class="hot">🌶 حار</span></div><div class="mc-desc">صدر مشوي، خس، بندورة، مخلل، تيركي، جبنة سويس، هلابينو، سويت تشيلي، بفالو صوص</div></div><div class="prices"><div class="pc"><span class="pl">بيرغر</span><span class="pv">3.20</span></div><div class="pc"><span class="pl">وجبة</span><span class="pv">4.90</span></div><div class="pc"><span class="pl">دبل</span><span class="pv">4.55</span></div><div class="pc"><span class="pl">دبل وجبة</span><span class="pv">6.25</span></div></div></div>
-  <div class="mc"><div class="mc-body"><div class="mc-top"><div class="mc-name">Royal · رويال</div></div><div class="mc-desc">صدر مشوي، خس، بندورة، مخلل، تيركي، جبنة سويس، باربيكيو صوص</div></div><div class="prices"><div class="pc"><span class="pl">بيرغر</span><span class="pv">3.10</span></div><div class="pc"><span class="pl">وجبة</span><span class="pv">4.80</span></div><div class="pc"><span class="pl">دبل</span><span class="pv">4.45</span></div><div class="pc"><span class="pl">دبل وجبة</span><span class="pv">6.15</span></div></div></div>
-  <div class="mc"><div class="mc-body"><div class="mc-top"><div class="mc-name">Burgerizz Chicken · بيرغرايز دجاج</div></div><div class="mc-desc">دجاج مشوي، خس، مخلل، جبنة سويس، سي صوص</div></div><div class="prices"><div class="pc"><span class="pl">بيرغر</span><span class="pv">2.25</span></div><div class="pc"><span class="pl">وجبة</span><span class="pv">3.50</span></div><div class="pc"><span class="pl">دبل</span><span class="pv">3.25</span></div><div class="pc"><span class="pl">دبل وجبة</span><span class="pv">4.50</span></div></div></div>
-  <div class="mc"><div class="mc-body"><div class="mc-top"><div class="mc-name">Mini Chicken · ميني دجاج</div></div><div class="mc-desc">دجاج مشوي، خس، مخلل، جبنة سويس، سي صوص</div></div><div class="prices"><div class="pc"><span class="pl">بيرغر</span><span class="pv">1.75</span></div></div></div>
-</div>
+<section id="menu-section">
+  <div class="sec-head">
+    <div class="ey">✦ قائمة الطعام</div>
+    <h2>اكتشف <span>منيونا</span></h2>
+    <p>وجبات متنوعة تناسب كل الذوق والمزاج</p>
+  </div>
+  <div class="menu-wrap">
+    <button class="menu-btn" id="menuToggle" onclick="toggleMenu()">
+      <div class="menu-big-icon">🍗</div>
+      <div class="menu-btn-title">عرض المنيو الكامل</div>
+      <div class="menu-btn-sub">اضغط لعرض جميع الوجبات والأسعار</div>
+      <div class="menu-arr">▼</div>
+    </button>
+    <div class="menu-body" id="menuBody">
+      <div class="tabs">
+        <button class="tab active" onclick="switchTab(this,'fam')">👨‍👩‍👧 عائلية</button>
+        <button class="tab" onclick="switchTab(this,'ind')">🍽️ فردية</button>
+        <button class="tab" onclick="switchTab(this,'sand')">🥪 ساندويشات</button>
+        <button class="tab" onclick="switchTab(this,'mix')">🔀 كرنشي مكس</button>
+        <button class="tab" onclick="switchTab(this,'bits')">🍢 بايتس وأجنحة</button>
+        <button class="tab" onclick="switchTab(this,'side')">🍟 إضافات</button>
+      </div>
 
-<!-- HOT DOG -->
+```
+  <!-- FAMILY -->
+  <div class="panel active" id="p-fam">
+    <div class="panel-title">🍗 وجبات عائلية — قطع الدجاج</div>
+    <div class="items-grid">
+      <div class="item"><div class="item-row"><div><div class="item-name">20 قطعة دجاج</div><div class="item-ar">5 بطاطا + 5 كولسلو + 5 صوص ثوم + 6 كولا + 6 خبز</div></div><div class="item-price">16.55<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">16 قطعة دجاج</div><div class="item-ar">4 بطاطا + 4 كولسلو + 4 صوص ثوم + 6 كولا + 4 خبز</div></div><div class="item-price">13.75<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">12 قطعة دجاج</div><div class="item-ar">3 بطاطا + 3 كولسلو + 3 صوص ثوم + 3 كولا + 3 خبز</div></div><div class="item-price">9.75<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">10 قطع دجاج</div><div class="item-ar">2 بطاطا + 2 كولسلو + 2 صوص ثوم + 3 كولا + 2 خبز</div></div><div class="item-price">7.75<small> JD</small></div></div></div>
+    </div>
+    <div class="divider"></div>
+    <div class="panel-title">🥩 وجبات عائلية — تندرز</div>
+    <div class="items-grid">
+      <div class="item"><div class="item-row"><div><div class="item-name">15 قطعة تندرز</div><div class="item-ar">3 بطاطا + 3 كولسلو + 3 صوص ثوم + 3 كولا + 3 خبز</div></div><div class="item-price">9.75<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">10 قطع تندرز</div><div class="item-ar">2 بطاطا + 2 كولسلو + 2 صوص ثوم + 3 كولا + 2 خبز</div></div><div class="item-price">6.85<small> JD</small></div></div></div>
+      <div class="item"><div class="badge-new">MIX</div><div class="item-row"><div><div class="item-name">10 دجاج + 10 تندرز</div><div class="item-ar">3 بطاطا + 3 كولسلو + 3 صوص ثوم + 3 كولا + 4 خبز</div></div><div class="item-price">13.25<small> JD</small></div></div></div>
+    </div>
+  </div>
 
-<div class="sec"><h2>🌭 هوت دوج</h2><div class="sec-line"></div></div>
-<div class="menu">
-  <div class="mc"><div class="mc-body"><div class="mc-top"><div class="mc-name">Burgerizz Hot Dog</div></div><div class="mc-desc">أنجوس هوت دوج، خس، بندورة، بصل، جبنة، ذرة، شيبس ستيكس، مايونيز، هلابينو (اختياري)</div></div><div class="prices"><div class="pc"><span class="pl">ساندويش</span><span class="pv">3.25</span></div><div class="pc"><span class="pl">وجبة</span><span class="pv">4.55</span></div></div></div>
-  <div class="mc"><div class="mc-body"><div class="mc-top"><div class="mc-name">Classic Hot Dog · كلاسيك</div></div><div class="mc-desc">أنجوس هوت دوج، مايونيز، مسطردة، كاتشب، خردل، مخلل</div></div><div class="prices"><div class="pc"><span class="pl">ساندويش</span><span class="pv">2.75</span></div><div class="pc"><span class="pl">وجبة</span><span class="pv">3.75</span></div></div></div>
-</div>
+  <!-- INDIVIDUAL -->
+  <div class="panel" id="p-ind">
+    <div class="panel-title">🍽️ وجبات فردية</div>
+    <div class="items-grid">
+      <div class="item"><div class="item-row"><div><div class="item-name">4 قطع دجاج</div><div class="item-ar">بطاطا + كولسلو + صوص ثوم + كولا + خبز</div></div><div class="item-price">3.35<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">3 قطع دجاج</div><div class="item-ar">بطاطا + كولسلو + صوص ثوم + كولا + خبز</div></div><div class="item-price">2.75<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">5 قطع تندرز</div><div class="item-ar">بطاطا + كولسلو + صوص ثوم + كولا + خبز</div></div><div class="item-price">3.35<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">3 قطع تندرز</div><div class="item-ar">بطاطا + كولسلو + صوص ثوم + كولا + خبز</div></div><div class="item-price">2.55<small> JD</small></div></div></div>
+    </div>
+  </div>
 
-<!-- SIDES -->
+  <!-- SANDWICHES -->
+  <div class="panel" id="p-sand">
+    <div class="panel-title">🥪 ساندويشات كرنشي</div>
+    <div class="items-grid">
+      <div class="item"><div class="item-row"><div><div class="item-name">Crunchy Chicken</div><div class="item-ar">150 غرام | + بطاطا + كولا</div></div><div class="item-price">2.65<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">Sweet N Sour</div><div class="item-ar">150 غرام | + بطاطا + كولا</div></div><div class="item-price">2.65<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">Crunchy Classic</div><div class="item-ar">150 غرام | + بطاطا + كولا</div></div><div class="item-price">2.45<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">Smokey Chicken</div><div class="item-ar">150 غرام | + بطاطا + كولا</div></div><div class="item-price">2.65<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">Crunchy Delux</div><div class="item-ar">100 غرام | + بطاطا + كولا</div></div><div class="item-price">2.25<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">Crunchy Roll Up</div><div class="item-ar">100 غرام | + بطاطا + كولا</div></div><div class="item-price">2.25<small> JD</small></div></div></div>
+    </div>
+  </div>
 
-<div class="sec"><h2>🍟 أطباق جانبية</h2><div class="sec-line"></div></div>
-<div class="grid2">
-  <div class="gc"><span class="gi">🍟</span><div class="gn">French Fries</div><div class="gs">بطاطا مقلية</div><div class="gp">1.35 JD</div></div>
-  <div class="gc"><span class="gi">🍠</span><div class="gn">Wedges Fries</div><div class="gs">بطاطا ودجز</div><div class="gp">1.85 JD</div></div>
-  <div class="gc"><span class="gi">🌀</span><div class="gn">Curly Fries</div><div class="gs">بطاطا كيرلي</div><div class="gp">2.25 JD</div></div>
-  <div class="gc"><span class="gi">🟫</span><div class="gn">Hash Brown</div><div class="gs">هاش براون</div><div class="gp">1.85 JD</div></div>
-  <div class="gc"><span class="gi">🧅</span><div class="gn">Onion Rings (8)</div><div class="gs">حلقات البصل</div><div class="gp">1.85 JD</div></div>
-  <div class="gc"><span class="gi">🧀</span><div class="gn">Mozzarella Sticks (4)</div><div class="gs">أصابع موزاريلا</div><div class="gp">2.10 JD</div></div>
-  <div class="gc"><span class="gi">🌶</span><div class="gn">Chili Cheese Balls (4)</div><div class="gs">كرات الجبنة</div><div class="gp">2.10 JD</div></div>
-  <div class="gc"><span class="gi">🍗</span><div class="gn">Chicken Nuggets (6)</div><div class="gs">نجتس دجاج</div><div class="gp">2.00 JD</div></div>
-</div>
-<div style="padding:8px 14px 0">
-  <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px 16px;text-align:center">
-    <div style="font-size:14px;font-weight:700;margin-bottom:5px">🥫 الصوصات</div>
-    <div style="font-size:12px;color:#4a4a4a">Buffalo · BBQ · B Sauce · Sweet Chili · Mayo Mustard</div>
-    <div style="font-size:16px;font-weight:800;color:var(--gold);margin-top:7px">0.50 JD / صوص</div>
+  <!-- MIX -->
+  <div class="panel" id="p-mix">
+    <div class="panel-title">🔀 كرنشي مكس — ساندويش + دجاج</div>
+    <div class="items-grid">
+      <div class="item"><div class="item-row"><div><div class="item-name">Crunchy Chicken Mix</div><div class="item-ar">بطاطا + 2 دجاج + كولا</div></div><div class="item-price">3.65<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">Sweet N Sour Mix</div><div class="item-ar">بطاطا + 2 دجاج + كولا</div></div><div class="item-price">3.65<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">Crunchy Classic Mix</div><div class="item-ar">بطاطا + 2 دجاج + كولا</div></div><div class="item-price">3.50<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">Smokey Chicken Mix</div><div class="item-ar">بطاطا + 2 دجاج + كولا</div></div><div class="item-price">3.65<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">Crunchy Delux Mix</div><div class="item-ar">بطاطا + 2 دجاج + كولا</div></div><div class="item-price">3.25<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">Crunchy Roll Up Mix</div><div class="item-ar">بطاطا + 2 دجاج + كولا</div></div><div class="item-price">3.25<small> JD</small></div></div></div>
+    </div>
+  </div>
+
+  <!-- BITES -->
+  <div class="panel" id="p-bits">
+    <div class="panel-title">🍢 بايتس مقرمشة — 12 قطعة | 2.65 JD</div>
+    <div class="items-grid">
+      <div class="item"><div class="item-row"><div><div class="item-name">Sweet Chili Bites</div><div class="item-ar">بطاطا + كولا + خبز</div></div><div class="item-price">2.65<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">Honey Mustard Bites</div><div class="item-ar">بطاطا + كولا + خبز</div></div><div class="item-price">2.65<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">Sweet N Sour Bites</div><div class="item-ar">بطاطا + كولا + خبز</div></div><div class="item-price">2.65<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">BBQ Bites</div><div class="item-ar">بطاطا + كولا + خبز</div></div><div class="item-price">2.65<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">Buffalo Bites</div><div class="item-ar">بطاطا + كولا + خبز</div></div><div class="item-price">2.65<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">Dynamite Bites</div><div class="item-ar">بطاطا + كولا + خبز</div></div><div class="item-price">2.65<small> JD</small></div></div></div>
+    </div>
+    <div class="divider"></div>
+    <div class="panel-title">🍗 أجنحة مقرمشة</div>
+    <div class="items-grid">
+      <div class="item"><div class="item-row"><div><div class="item-name">12 أجنحة</div><div class="item-ar">بطاطا + كولا + خبز</div></div><div class="item-price">2.90<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">8 أجنحة</div><div class="item-ar">بطاطا + كولا + خبز</div></div><div class="item-price">2.40<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">6 أجنحة</div><div class="item-ar">بدون بطاطا وكولا</div></div><div class="item-price">1.30<small> JD</small></div></div></div>
+    </div>
+  </div>
+
+  <!-- SIDES -->
+  <div class="panel" id="p-side">
+    <div class="panel-title">🍟 طلبات جانبية</div>
+    <div class="items-grid">
+      <div class="item"><div class="item-row"><div><div class="item-name">Ranch Rizo</div><div class="item-ar">ريزو رانش</div></div><div class="item-price">1.80<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">Kari Rizo</div><div class="item-ar">ريزو كاري</div></div><div class="item-price">1.80<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">Sweet Chili Rizo</div><div class="item-ar">ريزو سويت تشيلي</div></div><div class="item-price">1.80<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">BBQ Rizo</div><div class="item-ar">ريزو باربيكيو</div></div><div class="item-price">1.80<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">Alfredo Rizo</div><div class="item-ar">ريزو الفريدو</div></div><div class="item-price">1.80<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">Turbo Rice</div><div class="item-ar">أرز تيربيو</div></div><div class="item-price">2.00<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">Mr. Crunchy Rice</div><div class="item-ar">أرز مستر كرنشي</div></div><div class="item-price">1.00<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">Rice & Chicken</div><div class="item-ar">أرز مع دجاج</div></div><div class="item-price">1.50<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">Mixecan Bowl</div><div class="item-ar">سلطة مكسيكي</div></div><div class="item-price">2.00<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">Ice Cream</div><div class="item-ar">بوظة كرنشي</div></div><div class="item-price">0.65<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">Fries</div><div class="item-ar">بطاطا</div></div><div class="item-price">0.50<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">Mashed Potato S/L</div><div class="item-ar">بطاطا مهروسة</div></div><div class="item-price">0.50-1.50<small> JD</small></div></div></div>
+    </div>
+    <div class="divider"></div>
+    <div class="panel-title">👶 وجبات أطفال — 1.80 JD</div>
+    <div class="items-grid">
+      <div class="item"><div class="item-row"><div><div class="item-name">تندرز</div></div><div class="item-price">1.80<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">2 قطع دجاج</div></div><div class="item-price">1.80<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">برغر</div></div><div class="item-price">1.80<small> JD</small></div></div></div>
+      <div class="item"><div class="item-row"><div><div class="item-name">نجتسل</div></div><div class="item-price">1.80<small> JD</small></div></div></div>
+    </div>
   </div>
 </div>
+```
 
-<!-- DRINKS -->
+  </div>
+</section>
 
-<div class="sec"><h2>🥤 مشروبات</h2><div class="sec-line"></div></div>
-<div class="grid2">
-  <div class="gc"><span class="gi">🍊</span><div class="gn">عصير برتقال طازج</div><div class="gp">1.30 JD</div></div>
-  <div class="gc"><span class="gi">🥤</span><div class="gn">مشروبات غازية</div><div class="gp">0.50 JD</div></div>
-  <div class="gc"><span class="gi">🧃</span><div class="gn">عصائر</div><div class="gp">0.50 JD</div></div>
-  <div class="gc"><span class="gi">💧</span><div class="gn">مياه معدنية</div><div class="gp">0.50 JD</div></div>
-  <div class="gc"><span class="gi">☕</span><div class="gn">قهوة بلاك</div><div class="gp">1.25 JD</div></div>
-</div>
+<!-- CTA -->
 
-<!-- SHAKES -->
+<section id="cta">
+  <h2>جاهز تطلب؟ 🍗</h2>
+  <p>تواصل معنا الآن وجهّز وجبتك المفضلة</p>
+  <div class="cta-btns">
+    <a href="tel:065333338" class="cta-btn red">📞 اتصل — 065333338</a>
+    <a href="https://wa.me/96265333338" target="_blank" class="cta-btn green">💬 واتساب</a>
+  </div>
+</section>
 
-<div class="sec"><h2>🥛 ميلك شيك & بي شيك</h2><div class="sec-line"></div></div>
-<div class="grid2">
-  <div class="gc"><span class="gi">🍓</span><div class="gn">فراولة</div><div class="gp">2.75 JD</div></div>
-  <div class="gc"><span class="gi">🍇</span><div class="gn">توت</div><div class="gp">2.75 JD</div></div>
-  <div class="gc"><span class="gi">🍫</span><div class="gn">شوكولاتة</div><div class="gp">2.75 JD</div></div>
-  <div class="gc"><span class="gi">🫐</span><div class="gn">توت بري</div><div class="gp">2.75 JD</div></div>
-  <div class="gc"><span class="gi">🍑</span><div class="gn">بيتشوو</div><div class="gp">2.75 JD</div></div>
-  <div class="gc"><span class="gi">🌹</span><div class="gn">تي روز</div><div class="gp">2.75 JD</div></div>
-  <div class="gc"><span class="gi">🍂</span><div class="gn">سينا بيك</div><div class="gp">2.75 JD</div></div>
-</div>
+<!-- FOOTER -->
 
-<!-- BREAKFAST -->
+<footer>
+  <div class="f-logo">MR. CRUNCHY CHICKEN</div>
+  <p>فرع خلدا | فرع الجامعة | فرع صويلح | فرع البيادر</p>
+  <p style="margin-top:10px">© 2025 Mr. Crunchy Chicken. جميع الحقوق محفوظة.</p>
+</footer>
 
-<div class="sec"><h2>🌅 فطور</h2><div class="sec-line"></div><span class="sec-pill">Breakfast</span></div>
-<div class="blist">
-  <div class="bc"><div class="bn">بي كلوب</div><div class="bps"><div class="bp"><span>ساندويش</span><strong>2.25</strong></div><div class="bp"><span>وجبة</span><strong>2.75</strong></div></div></div>
-  <div class="bc"><div class="bn">فيروز</div><div class="bps"><div class="bp"><span>ساندويش</span><strong>1.75</strong></div><div class="bp"><span>وجبة</span><strong>2.25</strong></div></div></div>
-  <div class="bc"><div class="bn">بيستو حلومي</div><div class="bps"><div class="bp"><span>ساندويش</span><strong>2.50</strong></div><div class="bp"><span>وجبة</span><strong>3.25</strong></div></div></div>
-  <div class="bc"><div class="bn">بي دجاج</div><div class="bps"><div class="bp"><span>ساندويش</span><strong>1.75</strong></div><div class="bp"><span>وجبة</span><strong>2.50</strong></div></div></div>
-  <div class="bc"><div class="bn">فاست راب</div><div class="bps"><div class="bp"><span>ساندويش</span><strong>1.50</strong></div><div class="bp"><span>وجبة</span><strong>2.25</strong></div></div></div>
-</div>
+<script>
+  function toggleMenu() {
+    const btn = document.getElementById('menuToggle');
+    const body = document.getElementById('menuBody');
+    btn.classList.toggle('open');
+    body.classList.toggle('open');
+    if (body.classList.contains('open')) {
+      setTimeout(() => body.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+    }
+  }
 
-<!-- KIDS -->
+  function switchTab(el, id) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    el.classList.add('active');
+    document.getElementById('p-' + id).classList.add('active');
+  }
 
-<div class="sec"><h2>🧒 وجبات الأطفال</h2><div class="sec-line"></div></div>
-<div class="menu">
-  <div class="mc"><div class="mc-body"><div class="mc-top"><div class="mc-name">Kids Chicken Nuggets</div></div><div class="mc-desc">٦ قطع + بطاطا + عصير + BBQ + هدية</div></div><div class="prices"><div class="pc"><span class="pl">وجبة</span><span class="pv">2.25</span></div></div></div>
-  <div class="mc"><div class="mc-body"><div class="mc-top"><div class="mc-name">Kids Chicken Burger</div></div><div class="mc-desc">دجاج مشوي، خس، مخلل، جبنة سويس، سي صوص</div></div><div class="prices"><div class="pc"><span class="pl">بيرغر</span><span class="pv">1.25</span></div><div class="pc"><span class="pl">وجبة+هدية</span><span class="pv">2.00</span></div></div></div>
-  <div class="mc"><div class="mc-body"><div class="mc-top"><div class="mc-name">Kids Beef Burger</div></div><div class="mc-desc">لحم، خس، بندورة، جبنة شدر، بيرغرايز صوص</div></div><div class="prices"><div class="pc"><span class="pl">بيرغر</span><span class="pv">1.75</span></div><div class="pc"><span class="pl">وجبة+هدية</span><span class="pv">2.50</span></div></div></div>
-</div>
-
-<div class="note">★ الأسعار تشمل ضريبة المبيعات<br>جميع البيرغر من لحم بقري طبيعي ١٠٠٪ على خبز بطاطا طازج</div>
-
-<div class="footer">
-  <p style="font-size:15px;color:#4a4a4a;margin-bottom:8px">📍 بيرغرايز — الجبيهة، عمّان</p>
-  <p>تواصل عبر واتساب أو اتصال من الأزرار أدناه</p>
-</div>
-
-<div class="sticky">
-  <a href="https://wa.me/96265900333" class="s-wa">
-    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    واتساب
-  </a>
-  <a href="tel:+96265900333" class="s-call">
-    <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-    اتصال
-  </a>
-</div>
+  // Scroll reveal
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal, .rev-card, .item, .feat, .br, .stat').forEach(el => {
+    el.classList.add('reveal');
+    obs.observe(el);
+  });
+</script>
 
 </body>
 </html>
